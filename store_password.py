@@ -1,6 +1,7 @@
 import bcrypt
 import json
 import os
+import getpass
 from check_password import check
 
 username = input("Enter your username: ")
@@ -22,7 +23,7 @@ if (user_exists):
         print("Terminating session....")
         exit()
 
-password = input("Enter your password: ").encode()
+password = getpass.getpass(prompt="Enter password: ").encode()
 
 hash = bcrypt.hashpw(password, bcrypt.gensalt()).decode()
 
